@@ -1,8 +1,13 @@
 package com.request.app.resources;
 
+import com.request.app.domain.Categoria;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.ArrayList;
+import java.util.List;
 
 //@Anotações
 
@@ -11,8 +16,14 @@ import org.springframework.web.bind.annotation.RestController;
 public class CategoriaResource {
   
   @RequestMapping(method = RequestMethod.GET)//Metodo GET para ter acesso essa funçao exemplo localhost:8080/categorias
-  public String listar() {
-    return "REST esta funcionando";
+  public List<Categoria> listar() {//Metodo retorna lista(tipocategoria)
+    Categoria cat1 = new Categoria(1, "Informatica");
+    Categoria cat2 = new Categoria(2, "Escritorio" );
+
+    List<Categoria> lista = new ArrayList<>();
+    lista.add(cat1);
+    lista.add(cat2);
+    return lista;//retorno no formato json
   }
 
 }
